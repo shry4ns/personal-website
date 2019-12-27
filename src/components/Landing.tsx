@@ -1,6 +1,9 @@
 import React from 'react';
 import {Box, Grid, Heading, Text} from 'grommet';
 import First from './first.jpg';
+// @ts-ignore
+import ReactAnime from 'react-animejs';
+const {Anime, stagger} = ReactAnime
   
 const rows:Array<string> = ['flex'];
 const columns:Array<string> = ['flex', 'flex'];
@@ -30,13 +33,23 @@ const Landing: React.FC = () => {
        style={{background: '#ff7d28'}}
        fill = {true}>
             <Box> 
-                <About />
+                <About id="Box"/>
             </Box>
             <Box background='white'
             pad= 'large'>
-                <img src={First}></img>
+                <img src={First} style={{boxShadow: '1px 1px 5px'}}></img>
             </Box>
        </Grid>
+       <Anime
+  initial={[
+    {
+      targets: "#Box",
+      translateX: 50,
+      easing: "linear"
+    }
+  ]}
+>
+</Anime>
     </div>
   
     );
